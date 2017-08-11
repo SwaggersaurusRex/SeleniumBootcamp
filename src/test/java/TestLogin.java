@@ -2,6 +2,7 @@
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,6 +28,8 @@ public class TestLogin {
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("#login button")).click();
+
+        Assert.assertEquals(driver.findElement(By.cssSelector("#flash.success")).isDisplayed(), true);
     }
 
 }
